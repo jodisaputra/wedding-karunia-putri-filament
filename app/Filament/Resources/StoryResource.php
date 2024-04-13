@@ -31,7 +31,8 @@ class StoryResource extends Resource
                 FileUpload::make('story_image')
                     ->columnSpanFull()
                     ->directory('stories')
-                    ->image()->required()
+                    ->image()
+                    ->required()
             ));
     }
 
