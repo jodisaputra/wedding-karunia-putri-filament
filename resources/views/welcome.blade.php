@@ -158,16 +158,7 @@
                 </div>
                 <div class="col col-xl-8 col-lg-6 col-md-12 col-12">
                     <div class="contact-img wow fadeInRightSlow" data-wow-duration="1700ms">
-                        <img src="{{ asset('template') }}/assets/images/contact/img-4.jpg" alt="">
-
-                        <div class="rsvp-info">
-                            <div class="info-left">
-                                <h2>We Are Getting Married!</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc, egestas luctus
-                                    hendrerit maecenas.</p>
-                            </div>
-                            <div class="btn"><a class="theme-btn" href="rsvp.html">Discover More</a></div>
-                        </div>
+                        <img src="{{ asset('template') }}/assets/images/contact/img-5.jpeg" alt="">
                     </div>
                 </div>
             </div>
@@ -186,15 +177,15 @@
                 <div class="row align-items-center">
                     <div class="col col-lg-7 wow fadeInLeftSlow" data-wow-duration="1700ms">
                         <div class="slider-for">
-                            <div class="testimonial-img">
-                                <img src="assets/images/testimonial/img-1.jpg" alt="">
-                            </div>
-                            <div class="testimonial-img">
-                                <img src="assets/images/testimonial/img-2.jpg" alt="">
-                            </div>
-                            <div class="testimonial-img">
-                                <img src="assets/images/testimonial/img-3.jpg" alt="">
-                            </div>
+                            @forelse($sliders as $slider)
+                                <div class="testimonial-img">
+                                    <img src="{{ asset('storage/') }}/{{ $slider->image  }}" alt="">
+                                </div>
+                            @empty
+                                <div class="testimonial-img">
+                                    <img src="assets/images/testimonial/img-1.jpg" alt="">
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                     <div class="col col-lg-5 wow fadeInRightSlow" data-wow-duration="1700ms">
@@ -202,7 +193,6 @@
                             <div class="slider-nav">
                                 <div class="wpo-testimonial-item">
                                     <div class="wpo-testimonial-text">
-                                        <i class="fi flaticon-quotation"></i>
                                         <p>Varius aenean fringilla consectetur adipiscing felis, lectus. Id eros,
                                             porta quam quis proin non vulputate lacinia imperdiet. Mus ut amet
                                             tortor iEros, sed at semper sed in tempor ultrices sed. Id sem nulla
