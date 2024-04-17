@@ -35,8 +35,7 @@
                 Karunia & Putri
                 <span class="shape-2"><img src="{{ asset('template') }}/assets/images/slider/shape2.png" alt=""> </span>
             </h2>
-            <p class="wow fadeInUp" data-wow-duration="1200ms">Kami akan melaksanakan Pernikahan pada tanggal November
-                15,2022</p>
+            <p class="wow fadeInUp" data-wow-duration="1200ms">Kami akan melaksanakan Pernikahan pada tanggal <b>11 Mei 2024</b></p>
         </div> <!-- end container -->
     </section>
     <!-- end wpo-wedding-date -->
