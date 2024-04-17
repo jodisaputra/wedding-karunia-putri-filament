@@ -104,7 +104,7 @@
             </div>
             <div class="row mt-5 pt-5">
                 <div class="col-lg-12 text-center mt-5">
-                    <a href="" class="theme-btn">Lihat Selengkapnya Cerita Mereka</a>
+                    <a href="{{ route('cerita-kami')  }}" class="theme-btn">Lihat Selengkapnya Cerita Mereka</a>
                 </div>
             </div>
         </div> <!-- end container -->

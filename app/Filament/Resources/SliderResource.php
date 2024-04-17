@@ -29,6 +29,12 @@ class SliderResource extends Resource
                     ->directory('sliders')
                     ->image()
                     ->required()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->columnSpanFull()
             ));
     }

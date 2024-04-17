@@ -73,25 +73,9 @@
                             <div id="navbar" class="collapse navbar-collapse navigation-holder">
                                 <button class="menu-close"><i class="ti-close"></i></button>
                                 <ul class="nav navbar-nav mb-2 mb-lg-0">
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Main Home</a></li>
-                                            <li><a href="index-2.html">Wedding Planner</a></li>
-                                            <li><a class="active" href="index-3.html">Announcement Home</a></li>
-                                            <li><a href="index-4.html">Wedding Home</a></li>
-                                            <li><a href="index-5.html">Asian / Indian Wedding Announcement</a></li>
-                                            <li><a href="index-6.html">Asian / Indian Wedding Planner</a></li>
-                                            <li><a href="index-7.html">Muslim Wedding</a></li>
-                                            <li><a href="index-8.html">Shop Home</a></li>
-                                            <li><a href="index-9.html">Wedding Invitation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="active-border"><a href="">Story</a></li>
-                                    <li><a href="#gallery">Gallery</a></li>
-                                    <li><a href="#rsvp">RSVP</a></li>
-                                    <li><a href="#event">Event</a></li>
-                                    <li><a href="#blog">Blog</a></li>
+                                    <li><a class="{{ Request::routeIs('/') ? 'active' : '' }}" href="{{ route('/')  }}">Beranda</a></li>
+                                    <li><a class="{{ Request::routeIs('cerita-kami') ? 'active' : '' }}" href="{{ route('cerita-kami')  }}">Cerita Kami</a></li>
+                                    <li><a class="{{ Request::routeIs('galeri') ? 'active' : '' }}" href="{{ route('galeri')  }}">Galeri</a></li>
                                 </ul>
 
                             </div><!-- end of nav-collapse -->
@@ -106,6 +90,7 @@
     @yield('content')
 
     <!-- wpo-site-footer start -->
+    <div class="mt-5 pt-5"></div>
     <div class="wpo-site-footer text-center">
         <div class="container">
             <div class="row">

@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('/');
+Route::get('/cerita-kami', [\App\Http\Controllers\PageController::class, 'story'])->name('cerita-kami');
+Route::get('/galeri', [\App\Http\Controllers\PageController::class, 'gallery'])->name('galeri');
