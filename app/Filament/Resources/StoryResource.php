@@ -32,6 +32,12 @@ class StoryResource extends Resource
                     ->columnSpanFull()
                     ->directory('stories')
                     ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->required()
             ));
     }
