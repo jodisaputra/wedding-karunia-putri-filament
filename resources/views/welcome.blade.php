@@ -35,7 +35,8 @@
                 Karunia & Putri
                 <span class="shape-2"><img src="{{ asset('template') }}/assets/images/slider/shape2.png" alt=""> </span>
             </h2>
-            <p class="wow fadeInUp" data-wow-duration="1200ms">Kami akan melaksanakan Pernikahan pada tanggal <b>11 Mei 2024</b></p>
+            <p class="wow fadeInUp" data-wow-duration="1200ms">Kami akan melaksanakan Pernikahan pada tanggal <b>11 Mei
+                    2024</b></p>
         </div> <!-- end container -->
     </section>
     <!-- end wpo-wedding-date -->
@@ -137,7 +138,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Pesan yang ingin disampaikan?"></textarea>
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control"
+                                              placeholder="Pesan yang ingin disampaikan?"></textarea>
                                 </div>
                                 <div class="submit-area">
                                     <button type="submit" class="theme-btn">Kirim</button>
@@ -250,71 +252,29 @@
     <section class="wpo-event-section section-padding pb-0" id="event">
         <div class="container">
             <div class="wpo-section-title">
-                <h4>Our Wedding</h4>
-                <h2>When & Where</h2>
+                <h4>Acara Kami</h4>
+                <h2>Kapan & Dimana</h2>
             </div>
             <div class="wpo-event-wrap">
                 <div class="row">
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="wpo-event-item">
-                            <div class="wpo-event-img">
-                                <img src="{{ asset('template') }}/assets/images/event/1.jpg" alt="">
-                                <div class="title"><h2>The Reception</h2></div>
-                            </div>
-                            <div class="wpo-event-text">
-                                <ul>
-                                    <li>Monday, 12 Apr. 2022
-                                        1:00 PM – 2:30 PM
-                                    </li>
-                                    <li>4517 Washington Ave. Manchester, Kentucky 39495</li>
-                                    <li>+1 234-567-8910</li>
-                                    <li><a class="popup-gmaps"
-                                           href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
-                                            Location</a></li>
-                                </ul>
+                    @forelse($events as $event)
+                        <div class="col col-lg-6 col-md-6 col-12">
+                            <div class="wpo-event-item">
+                                <div class="wpo-event-img">
+                                    <img src="{{ asset('storage/') }}/{{ $event->event_image  }}" alt="">
+                                    <div class="title"><h2>{{ $event->event_title  }}</h2></div>
+                                </div>
+                                <div class="wpo-event-text">
+                                    <ul>
+                                        {!! $event->event_description !!}
+                                        <li><a class="popup-gmaps"
+                                               href="{{ url($event->event_location)  }}">Lihat Lokasi</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="wpo-event-item">
-                            <div class="wpo-event-img">
-                                <img src="{{ asset('template') }}/assets/images/event/2.jpg" alt="">
-                                <div class="title"><h2>The Ceremony</h2></div>
-                            </div>
-                            <div class="wpo-event-text">
-                                <ul>
-                                    <li>Monday, 12 Apr. 2022
-                                        1:00 PM – 2:30 PM
-                                    </li>
-                                    <li>4517 Washington Ave. Manchester, Kentucky 39495</li>
-                                    <li>+1 234-567-8910</li>
-                                    <li><a class="popup-gmaps"
-                                           href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
-                                            Location</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="wpo-event-item">
-                            <div class="wpo-event-img">
-                                <img src="{{ asset('template') }}/assets/images/event/3.jpg" alt="">
-                                <div class="title"><h2>The Party</h2></div>
-                            </div>
-                            <div class="wpo-event-text">
-                                <ul>
-                                    <li>Monday, 12 Apr. 2022
-                                        1:00 PM – 2:30 PM
-                                    </li>
-                                    <li>4517 Washington Ave. Manchester, Kentucky 39495</li>
-                                    <li>+1 234-567-8910</li>
-                                    <li><a class="popup-gmaps"
-                                           href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
-                                            Location</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
 

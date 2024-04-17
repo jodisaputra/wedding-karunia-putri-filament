@@ -28,7 +28,7 @@ class EventResource extends Resource
             ->schema(components: array(
                 Forms\Components\TextInput::make('event_name')->columnSpanFull()->required(),
                 RichEditor::make('event_description')->columnSpanFull()->required(),
-                RichEditor::make('event_location')->columnSpanFull()->required(),
+                Forms\Components\TextInput::make('event_location')->columnSpanFull()->required(),
                 FileUpload::make('event_image')
                     ->columnSpanFull()
                     ->directory('events')
