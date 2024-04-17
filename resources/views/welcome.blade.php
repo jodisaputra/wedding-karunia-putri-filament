@@ -121,35 +121,42 @@
                             <div class="wpo-section-title">
                                 <h4>Kirim ucapan selamat kepada mereka</h4>
                             </div>
-                            <form method="post" class="contact-validation-active" id="contact-form-main">
+                            <form method="post" action="{{ route('store_greeting')  }}">
+                                @csrf
                                 <div>
-                                    <input type="text" class="form-control" name="name" id="name"
-                                           placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                                           placeholder="Nama Lengkap" value="{{ old('name')  }}">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="Email">
-                                </div>
-                                <div>
-                                    <select name="meal" class="form-control last">
+                                    <select name="friend_from" class="form-control last @error('friend_from') is-invalid @enderror">
                                         <option disabled="disabled" selected>Teman Dari ?</option>
-                                        <option>Karunia</option>
-                                        <option>Putri</option>
+                                        <option value="karunia" {{ old('gender') == 'karunia' ? 'selected' : null  }}>Karunia</option>
+                                        <option value="putri" {{ old('gender') == 'putri' ? 'selected' : null  }}>Putri</option>
                                     </select>
+                                    @error('friend_from')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div>
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control"
+                                    <textarea name="message" id="" cols="30" rows="10" class="form-control @error('message') is-invalid @enderror"
                                               placeholder="Pesan yang ingin disampaikan?"></textarea>
+                                    @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="submit-area">
                                     <button type="submit" class="theme-btn">Kirim</button>
                                     <div id="c-loader">
                                         <i class="ti-reload"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix error-handling-messages">
-                                    <div id="success">Terima Kasih, Pesan Kamu akan kami Sampaikan kepada Mereka</div>
-                                    <div id="error"> Error occurred while sending email. Please try again later.
                                     </div>
                                 </div>
                             </form>
@@ -191,44 +198,18 @@
                     <div class="col col-lg-5 wow fadeInRightSlow" data-wow-duration="1700ms">
                         <div class="wpo-testimonial-items">
                             <div class="slider-nav">
-                                <div class="wpo-testimonial-item">
-                                    <div class="wpo-testimonial-text">
-                                        <p>Varius aenean fringilla consectetur adipiscing felis, lectus. Id eros,
-                                            porta quam quis proin non vulputate lacinia imperdiet. Mus ut amet
-                                            tortor iEros, sed at semper sed in tempor ultrices sed. Id sem nulla
-                                            quisque vel duiscoue necrd.</p>
-                                        <div class="wpo-testimonial-text-btm">
-                                            <h3>Marlin & Williamson</h3>
-                                            <span>Wedding- 23.05.2022</span>
+                                @forelse($greetings as $greeting)
+                                    <div class="wpo-testimonial-item">
+                                        <div class="wpo-testimonial-text">
+                                            {!! $greeting->message  !!}
+                                            <div class="wpo-testimonial-text-btm">
+                                                <h3>{{ $greeting->name  }}</h3>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="wpo-testimonial-item">
-                                    <div class="wpo-testimonial-text">
-                                        <i class="fi flaticon-quotation"></i>
-                                        <p>Varius aenean fringilla consectetur adipiscing felis, lectus. Id eros,
-                                            porta quam quis proin non vulputate lacinia imperdiet. Mus ut amet
-                                            tortor iEros, sed at semper sed in tempor ultrices sed. Id sem nulla
-                                            quisque vel duiscoue necrd.</p>
-                                        <div class="wpo-testimonial-text-btm">
-                                            <h3>Rihanna & William</h3>
-                                            <span>Wedding- 08.12.2022</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wpo-testimonial-item">
-                                    <div class="wpo-testimonial-text">
-                                        <i class="fi flaticon-quotation"></i>
-                                        <p>Varius aenean fringilla consectetur adipiscing felis, lectus. Id eros,
-                                            porta quam quis proin non vulputate lacinia imperdiet. Mus ut amet
-                                            tortor iEros, sed at semper sed in tempor ultrices sed. Id sem nulla
-                                            quisque vel duiscoue necrd.</p>
-                                        <div class="wpo-testimonial-text-btm">
-                                            <h3>Sarah & Daniel</h3>
-                                            <span>Wedding- 12.08.2022</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+                                    Tidak ada Kata Ucapan !
+                                @endforelse
                             </div>
                         </div>
                     </div>

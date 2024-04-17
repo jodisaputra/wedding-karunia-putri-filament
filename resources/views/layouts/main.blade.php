@@ -86,7 +86,7 @@
         </div>
     </header>
     <!-- end of header -->
-
+    @include('sweetalert::alert')
     @yield('content')
 
     <!-- wpo-site-footer start -->
